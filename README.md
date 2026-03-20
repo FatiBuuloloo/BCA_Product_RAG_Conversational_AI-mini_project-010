@@ -5,30 +5,16 @@ An Indonesian-language RAG chatbot that answers questions about BCA banking
 products using semantic search over a structured vector knowledge base.
 
 ## Architecture
-
-```mermaid
-graph TD
-    A[User Query] --> B[LLM Intent Analyzer <br/> Groq / Llama 3.1 8B]
-    
-    B --> B1{Product Detected?}
-    B1 -- No/Ambiguous --> C[Trigger Clarification Context]
-    B1 -- Yes --> D[Semantic Retrieval <br/> Pinecone + BAAI/bge-m3]
-    
-    C --> A
-    
-    D --> D1[Similarity Search k=20]
-    D1 --> D2[Post-filter by product_name <br/> using Fuzzy Normalization]
-    
-    D2 --> E[Answer Generation <br/> Groq / Llama 3.1 8B]
-    
-    E --> E1[Strictly Grounded in Context]
-    E --> E2[Conversation Memory: last 8 turns]
-    
-    E1 & E2 --> F[Final Response to User]
-    
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
+- User Query
+- LLM Intent Analyzer (Groq / Llama 3.1 8B)
+  - Detects product name from 75+ products
+  - Triggers clarification if query is ambiguous
+- Semantic Retrieval (Pinecone + BAAI/bge-m3)
+  - similarity_search(k=20) — no Pinecone-side filter
+  - Post-filter by product_name using fuzzy normalization
+- Answer Generation (Groq / Llama 3.1 8B)
+  - Strictly grounded in retrieved context
+  - Conversation memory: last 8 turns
 
 ## Tech Stack
 

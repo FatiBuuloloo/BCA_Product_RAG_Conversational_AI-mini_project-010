@@ -1,8 +1,8 @@
 # BCA-Product-RAG-Conversational-AI
 
 ## View — BCA Product Knowledge Assistant
-An Indonesian-language RAG chatbot that answers questions about BCA banking 
-products using semantic search over a structured vector knowledge base.
+An Indonesian-language RAG chatbot that answers questions about [BCA banking 
+products](https://www.bca.co.id/id/Individu/produk) using semantic search over a structured vector knowledge base.
 
 Live Demo
 Experience the chatbot in action here:

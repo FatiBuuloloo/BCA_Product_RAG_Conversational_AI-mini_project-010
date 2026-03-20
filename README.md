@@ -4,6 +4,12 @@
 An Indonesian-language RAG chatbot that answers questions about BCA banking 
 products using semantic search over a structured vector knowledge base.
 
+Live Demo
+Experience the chatbot in action here:
+[View - BCA Product Assistant](https://viewww-view-bot-bca-assistant.hf.space)
+Hugging Face Repository: 
+[View on Hugging Face](https://huggingface.co/spaces/Viewww/View-Bot-BCA-Assistant/tree/main)
+
 ## Architecture
 - User Query
 - LLM Intent Analyzer (Groq / Llama 3.1 8B)
